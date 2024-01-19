@@ -176,7 +176,7 @@ jobs:
       set -xe
       python -m pip install pytest pytest-azurepipelines
       python -m pip install scikit-learn==1.2
-      python -m pip install keras>=3 tensorflow
+      python -m pip install keras>=3.0 tensorflow
       python -m pytest -v tslearn/ --doctest-modules -k 'not test_all_estimators'
     displayName: 'Test'
 
