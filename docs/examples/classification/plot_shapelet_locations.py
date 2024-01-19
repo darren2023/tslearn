@@ -25,7 +25,7 @@ from tslearn.datasets import CachedDatasets
 from tslearn.preprocessing import TimeSeriesScalerMinMax
 from tslearn.shapelets import LearningShapelets, \
     grabocka_params_to_shapelet_size_dict
-from tensorflow.keras.optimizers import Adam
+from keras.optimizers import Adam
 
 # Set a seed to ensure determinism
 numpy.random.seed(42)
