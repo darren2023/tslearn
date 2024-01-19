@@ -9,7 +9,6 @@ nbsphinx
 sphinx-gallery
 pillow
 keras>=3
-tensorflow
 Pygments
 numba
 sphinx_bootstrap_theme
