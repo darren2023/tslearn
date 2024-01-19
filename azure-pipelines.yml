@@ -214,5 +214,5 @@ jobs:
   - script: |
       python -m pip install pytest pytest-azurepipelines
       python -m pip install scikit-learn==1.2
-      set KERAS_BACKEND="torch" && python -m pytest -v tslearn/ --doctest-modules --ignore tslearn/tests/test_estimators.py --ignore tslearn/utils/cast.py
+      set KERAS_BACKEND=torch && python -m pytest -v tslearn/ --doctest-modules --ignore tslearn/tests/test_estimators.py --ignore tslearn/utils/cast.py
     displayName: 'Test'
