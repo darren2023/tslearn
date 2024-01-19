@@ -42,8 +42,7 @@ jobs:
       set -xe
       python -m pip install pytest pytest-azurepipelines
       python -m pip install scikit-learn==1.2
-      python -m pip install keras>=3 tensorflow
-      python -m pytest -v tslearn/ --doctest-modules
+      export KERAS_BACKEND="torch" && python -m pytest -v tslearn/ --doctest-modules
     displayName: 'Test'
 
 - job: 'linux_without_torch'
@@ -80,8 +79,6 @@ jobs:
   - script: |
       set -xe
       python -m pip install pytest pytest-azurepipelines
-      python -m pip install scikit-learn==1.2
-      python -m pip install keras>=3 tensorflow
       python -m pytest -v tslearn/ --doctest-modules -k 'not tslearn.metrics.softdtw_variants.soft_dtw and not tslearn.metrics.softdtw_variants.cdist_soft_dtw and not tslearn.metrics.dtw_variants.dtw or tslearn.metrics.dtw_variants.dtw_'
     displayName: 'Test'
 
@@ -124,8 +121,7 @@ jobs:
       python -m pip install coverage pytest-cov
       python -m pip install cesium pandas stumpy
       python -m pip install scikit-learn==1.2
-      python -m pip install keras>=3 tensorflow
-      python -m pytest -v tslearn/ --doctest-modules --cov=tslearn
+      export KERAS_BACKEND="torch" && python -m pytest -v tslearn/ --doctest-modules --cov=tslearn
     displayName: 'Test'
 
   # Upload coverage to codecov.io
@@ -176,8 +172,7 @@ jobs:
       set -xe
       python -m pip install pytest pytest-azurepipelines
       python -m pip install scikit-learn==1.2
-      python -m pip install keras>=3.0 tensorflow
-      python -m pytest -v tslearn/ --doctest-modules -k 'not test_all_estimators'
+      export KERAS_BACKEND="torch" && python -m pytest -v tslearn/ --doctest-modules -k 'not test_all_estimators'
     displayName: 'Test'
 
 
@@ -219,6 +214,5 @@ jobs:
   - script: |
       python -m pip install pytest pytest-azurepipelines
       python -m pip install scikit-learn==1.2
-      python -m pip install keras>=3 tensorflow
-      python -m pytest -v tslearn/ --doctest-modules --ignore tslearn/tests/test_estimators.py --ignore tslearn/utils/cast.py
+      export KERAS_BACKEND="torch" && python -m pytest -v tslearn/ --doctest-modules --ignore tslearn/tests/test_estimators.py --ignore tslearn/utils/cast.py
     displayName: 'Test'
